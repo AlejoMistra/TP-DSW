@@ -6,7 +6,7 @@
 
 * 52665 - Mistraletti, Alejo
 * 54449 - Martinez, Ramiro
-* legajo - Apellido(s), Nombre(s)
+* 54483 - Borda, Iael
 * legajo - Apellido(s), Nombre(s)
 
 ### Repositorios
