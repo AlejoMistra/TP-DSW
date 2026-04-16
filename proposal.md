@@ -2,6 +2,7 @@
 
 ## Grupo
 
+
 ### Integrantes
 
 * 52665 - Mistraletti, Alejo
@@ -37,7 +38,7 @@ Regularidad:
 | Req | Detalle |
 | --- | --- |
 | CRUD simple | 1. CRUD Socio  2. CRUD Actividad  3. CRUD Instructor  4. CRUD Plan de Membresía |
-| CRUD dependiente | 1. CRUD Membresía {depende de} CRUD Socio y CRUD Plan  2. CRUD Turno {depende de} CRUD Actividad y CRUD Instructor |
+| CRUD dependiente | 1. CRUD Membresía {depende de} CRUD Socio y CRUD Plan de Membresía  2. CRUD Turno {depende de} CRUD Actividad y CRUD Instructor |
 | Listado + detalle | 1. Listado de turnos filtrado por actividad y/o día de la semana, muestra actividad, instructor, horario y cupo disponible => detalle muestra datos completos del turno y socios inscriptos  2. Listado de socios filtrado por estado de membresía (activo/vencido) y/o nombre, muestra nombre, DNI y estado => detalle muestra datos del socio, membresía vigente y rutinas asignadas |
 | CUU/Epic | 1. Registrar nuevo socio y asignarle un plan de membresía  2. Inscribir un socio a un turno de clase |
 
@@ -45,8 +46,8 @@ Adicionales para Aprobación:
 
 | Req | Detalle |
 | --- | --- |
-| CRUD | 1. CRUD Socio  2. CRUD Actividad  3. CRUD Instructor  4. CRUD Plan de Membresía  5. CRUD Membresía  6. CRUD Turno  7. CRUD Rutina (con sus ejercicios) |
-| CUU/Epic | 1. Registrar nuevo socio y asignarle un plan de membresía  2. Inscribir un socio a un turno de clase (valida cupo y membresía vigente)  3. Crear una rutina de entrenamiento y asignarla a un socio  4. Registrar pago de membresía y renovar vencimiento |
+| CRUD | 1. CRUD Socio  2. CRUD Actividad  3. CRUD Instructor  4. CRUD Plan de Membresía  5. CRUD Membresía {depende de} CRUD Socio y CRUD Plan de Membresía  6. CRUD Turno {depende de} CRUD Actividad y CRUD Instructor  7. CRUD Ejercicio  8. CRUD Rutina {depende de} CRUD Socio, CRUD Instructor y CRUD Ejercicio  9. CRUD InscripcionTurno {depende de} CRUD Socio y CRUD Turno |
+| CUU/Epic | 1. Registrar nuevo socio y asignarle un plan de membresía  2. Inscribir un socio a un turno de clase (valida cupo y membresía vigente)  3. Solicitar y crear una rutina de entrenamiento: el socio la solicita y el instructor la arma asignándole ejercicios  4. Registrar pago de membresía y renovar vencimiento |
 
 ### Alcance Adicional Voluntario
 
