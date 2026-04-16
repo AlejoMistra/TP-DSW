@@ -1,5 +1,3 @@
-# prueba
-# otra prueba mas
 # Propuesta TP DSW
 
 ## Grupo
@@ -21,12 +19,14 @@
 ### Descripción
 
 Sistema de gestión para un gimnasio que permite administrar socios, membresías,
-actividades e instructores. Los socios pueden consultar su estado de membresía
-y acceder a rutinas de entrenamiento personalizadas creadas por los instructores.
-El personal administrativo gestiona altas, pagos y la asignación de rutinas.
+rutinas e instructores. Los instructores pueden crear rutinas de entrenamiento
+y asignarlas a los socios. Los socios pueden consultar el estado de su membresía
+y acceder a rutinas de entrenamiento que les fueron asignadas por los instructores.
+El personal administrativo gestiona altas, planes y pagos.
 
-### Modeloo de dominio
-Aca agregue la fotro
+### Modelo de dominio
+
+Aca agregue la foto
 
 ## Alcance Funcional
 
