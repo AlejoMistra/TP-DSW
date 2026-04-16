@@ -24,9 +24,9 @@ y asignarlas a los socios. Los socios pueden consultar el estado de su membresí
 y acceder a rutinas de entrenamiento que les fueron asignadas por los instructores.
 El personal administrativo gestiona altas, planes y pagos.
 
-### Modelo de dominio
+### Diagrama de clases
 
-Aca agregue la foto
+
 
 ## Alcance Funcional
 
