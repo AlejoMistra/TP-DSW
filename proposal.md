@@ -9,8 +9,6 @@
 * 54483 - Borda, Iael
 * 53796 - Alodi, Milton
 
-Esta es una prueba de Ramiro
-
 ### Repositorios
 
 * [frontend app](http://hyperlinkToGithubOrGitlab)
@@ -28,7 +26,71 @@ El personal administrativo gestiona altas, planes y pagos.
 
 ### Modelo de dominio
 
-Aca agregue la foto
+```mermaid
+classDiagram
+
+class Socio {
+  +int id
+  +string nombre
+  +string dni
+  +string email
+  +string telefono
+  +Date fechaIngreso
+}
+
+class Plan {
+  +int id
+  +string nombre
+  +float precio
+  +int duracionDias
+  +string descripcion
+}
+
+class Membresia {
+  +int id
+  +Date fechaInicio
+  +Date fechaVencimiento
+  +string estado
+  +float montoPagado
+}
+
+class Actividad {
+  +int id
+  +string nombre
+  +string descripcion
+  +int duracionMinutos
+}
+
+class Instructor {
+  +int id
+  +string nombre
+  +string especialidad
+  +string email
+}
+
+class Rutina {
+  +int id
+  +string nombre
+  +string descripcion
+  +string nivel
+  +Date fechaCreacion
+}
+
+class EjercicioRutina {
+  +int id
+  +string nombreEjercicio
+  +int series
+  +int repeticiones
+  +string observaciones
+}
+
+class Turno {
+  +int id
+  +Date fecha
+  +string horaInicio
+  +string horaFin
+  +int cupoMaximo
+}
 
 ## Alcance Funcional
 
