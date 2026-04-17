@@ -4,10 +4,10 @@
 
 ### Integrantes
 
-* 52665 - Mistraletti, Alejo
-* 54449 - Martinez, Ramiro
-* 54483 - Borda, Iael
 * 53796 - Alodi, Milton
+* 54483 - Borda, Iael
+* 54449 - Martinez, Ramiro
+* 52665 - Mistraletti, Alejo
 
 ### Repositorios
 
