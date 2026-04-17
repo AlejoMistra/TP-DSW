@@ -92,15 +92,21 @@ class Turno {
   +int cupoMaximo
 }
 
-Socio "1" --> "0..*" Membresia
-Membresia --> Plan
+%% RELACIONES
 
-Actividad --> Turno
-Instructor --> Actividad
+Socio "1" --> "0..*" Membresia : tiene
+Membresia "1" --> "1" Plan : corresponde a
 
-Socio --> Rutina
-Rutina --> EjercicioRutina
-Instructor --> Rutina
+Socio "1" --> "0..*" Turno : reserva
+Turno "1" --> "1" Actividad : para
+
+Instructor "1" --> "0..*" Actividad : dicta
+Actividad "1" --> "0..*" Turno : genera
+
+Socio "1" --> "0..*" Rutina : sigue
+Rutina "1" --> "1..*" EjercicioRutina : contiene
+
+Instructor "1" --> "0..*" Rutina : crea
 ```
 
 ## Alcance Funcional
