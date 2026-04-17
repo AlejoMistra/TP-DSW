@@ -60,6 +60,7 @@ class Actividad {
   +int id
   +string nombre
   +string descripcion
+  +int cupo
   +int duracionMinutos
 }
 
