@@ -28,7 +28,88 @@ El personal administrativo gestiona altas, planes y pagos.
 
 ### Diagrama de clases
 
-aca va el diagrama de clases
+```mermaid
+classDiagram
+
+class Socio {
+  +int id
+  +string nombre
+  +string dni
+  +string email
+  +string telefono
+  +Date fechaIngreso
+}
+
+class Plan {
+  +int id
+  +string nombre
+  +float precio
+  +int duracionDias
+  +string descripcion
+}
+
+class Membresia {
+  +int id
+  +Date fechaInicio
+  +Date fechaVencimiento
+  +string estado
+  +float montoPagado
+}
+
+class Actividad {
+  +int id
+  +string nombre
+  +string descripcion
+  +int duracionMinutos
+}
+
+class Instructor {
+  +int id
+  +string nombre
+  +string especialidad
+  +string email
+}
+
+class Rutina {
+  +int id
+  +string nombre
+  +string descripcion
+  +string nivel
+  +Date fechaCreacion
+}
+
+class EjercicioRutina {
+  +int id
+  +string nombreEjercicio
+  +int series
+  +int repeticiones
+  +string observaciones
+}
+
+class Turno {
+  +int id
+  +Date fecha
+  +string horaInicio
+  +string horaFin
+  +int cupoMaximo
+}
+
+%% RELACIONES
+
+Socio "1" --> "0..*" Membresia : tiene
+Membresia "1" --> "1" Plan : corresponde a
+
+Socio "1" --> "0..*" Turno : reserva
+Turno "1" --> "1" Actividad : para
+
+Instructor "1" --> "0..*" Actividad : dicta
+Actividad "1" --> "0..*" Turno : genera
+
+Socio "1" --> "0..*" Rutina : sigue
+Rutina "1" --> "1..*" EjercicioRutina : contiene
+
+Instructor "1" --> "0..*" Rutina : crea
+```
 
 ## Alcance Funcional
 
