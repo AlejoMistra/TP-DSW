@@ -129,7 +129,7 @@ Adicionales para Aprobación:
 
 | Req | Detalle |
 | --- | --- |
-| CRUD | 1. CRUD Socio<br>2. CRUD Plan de Membresía<br>3. CRUD Instructor<br>4. CRUD Ejercicio<br>5. CRUD Membresía {depende de} CRUD Socio y CRUD Plan de Membresía<br>6. CRUD Rutina {depende de} CRUD Ejercicio<br>7. CRUD Turno {depende de} CRUD Actividad<br>8. CRUD Ejercicio<br>9. CRUD Rutina {depende de} CRUD Socio, CRUD Instructor y CRUD Ejercicio<br>10. CRUD InscripcionTurno {depende de} CRUD Socio y CRUD Turno |
+| CRUD | 1. CRUD Socio<br>2. CRUD Plan de Membresía<br>3. CRUD Instructor<br>4. CRUD Ejercicio<br>5. CRUD Membresía {depende de} CRUD Socio y CRUD Plan de Membresía<br>6. CRUD Rutina {depende de} CRUD Ejercicio<br>7. CRUD Ejercicio<br>8. CRUD Rutina {depende de} CRUD Socio, CRUD Instructor y CRUD Ejercicio<br>|
 | CUU/Epic | 1. Registrar nuevo socio y asignarle un plan de membresía<br>2. Solicitar y asignar una rutina de entrenamiento: el socio la solicita y el instructor la arma asignándole ejercicios<br>3. Registrar una nueva rutina con ejercicios<br>4. Registrar pago de membresía y renovar vencimiento |
 
 ### Alcance Adicional Voluntario
