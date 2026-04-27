@@ -79,7 +79,7 @@ class Rutina {
   +Date fechaCreacion
 }
 
-Ejercicio {
+class Ejercicio {
   +int id
   +string nombre
   +string descripcion
@@ -114,6 +114,7 @@ Socio "1" --> "0..*" Rutina : sigue
 Rutina "1" --> "1..*" EjercicioRutina : contiene
 
 Instructor "1" --> "0..*" Rutina : crea
+Instructor "1" --> "0..*" Ejercicio : crea
 ```
 
 ## Alcance Funcional
