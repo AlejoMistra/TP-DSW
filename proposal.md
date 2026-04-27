@@ -87,10 +87,10 @@ class Ejercicio {
 }
 
 class EjercicioRutina {
-  +int id
   +int series
   +int repeticiones
   +string observaciones
+  +int orden
 }
 
 class Turno {
@@ -101,6 +101,8 @@ class Turno {
 }
 
 %% RELACIONES
+
+Ejercicio "1" --> "0..*" EjercicioRutina : aparece en
 
 Socio "1" --> "0..*" Membresia : tiene
 Membresia "1" --> "1" Plan : corresponde a
