@@ -79,9 +79,15 @@ class Rutina {
   +Date fechaCreacion
 }
 
+Ejercicio {
+  +int id
+  +string nombre
+  +string descripcion
+  +string grupoMuscular
+}
+
 class EjercicioRutina {
   +int id
-  +string nombreEjercicio
   +int series
   +int repeticiones
   +string observaciones
