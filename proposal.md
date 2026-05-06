@@ -11,8 +11,8 @@
 
 ### Repositorios
 
-- [frontend app](http://hyperlinkToGithubOrGitlab)
-- [backend app](http://hyperlinkToGithubOrGitlab)
+- [frontend app](https://github.com/RamiroM04/Front-TP-DSW)
+- [backend app](https://github.com/RamiroM04/Back-TP-DSW)
 
 ## Tema
 
