@@ -31,92 +31,92 @@ El personal administrativo gestiona altas, planes y pagos.
 ```mermaid
 classDiagram
 
-class Socio {
+class Member {
   +int id
-  +string nombre
-  +string dni
+  +string name
+  +string idNumber
   +string email
-  +string telefono
-  +Date fechaIngreso
+  +string phone
+  +Date joinDate
 }
 
-class Plan {
+class MembershipPlan {
   +int id
-  +string nombre
-  +float precio
-  +int duracionDias
-  +string descripcion
+  +string name
+  +float price
+  +int durationDays
+  +string description
 }
 
-class Membresia {
+class Membership {
   +int id
-  +Date fechaInicio
-  +Date fechaVencimiento
-  +string estado
-  +float montoPagado
+  +Date startDate
+  +Date endDate
+  +string status
+  +float amountPaid
 }
 
-class Actividad {
+class Activity {
   +int id
-  +string nombre
-  +string descripcion
-  +int cupoMaximo
-  +int duracionMinutos
+  +string name
+  +string description
+  +int maxCapacity
+  +int durationMinutes
 }
 
 class Instructor {
   +int id
-  +string nombre
-  +string especialidad
+  +string name
+  +string specialty
   +string email
 }
 
-class Rutina {
+class Routine {
   +int id
-  +string nombre
-  +string descripcion
-  +string nivel
-  +Date fechaCreacion
+  +string name
+  +string description
+  +string level
+  +Date createdDate
 }
 
-class Ejercicio {
+class Exercise {
   +int id
-  +string nombre
-  +string descripcion
-  +string grupoMuscular
+  +string name
+  +string description
+  +string muscleGroup
 }
 
-class EjercicioRutina {
-  +int series
-  +int repeticiones
-  +string observaciones
-  +int orden
+class RoutineExercise {
+  +int sets
+  +int repetitions
+  +string notes
+  +int order
 }
 
-class Turno {
+class Booking {
   +int id
-  +Date fecha
-  +string horaInicio
-  +string horaFin
+  +Date date
+  +string startTime
+  +string endTime
 }
 
-%% RELACIONES
+%% RELATIONSHIPS
 
-Ejercicio "1" --> "0..*" EjercicioRutina : aparece en
+Exercise "1" --> "0..*" RoutineExercise : appears in
 
-Socio "1" --> "0..*" Membresia : tiene
-Membresia "1" --> "1" Plan : corresponde a
+Member "1" --> "0..*" Membership : has
+Membership "1" --> "1" MembershipPlan : corresponds to
 
-Socio "1" --> "0..*" Turno : reserva
-Turno "0..*" --> "1" Actividad : para
+Member "1" --> "0..*" Booking : books
+Booking "0..*" --> "1" Activity : for
 
-Instructor "1" --> "0..*" Actividad : dicta
+Instructor "1" --> "0..*" Activity : teaches
 
-Socio "1" --> "0..*" Rutina : sigue
-Rutina "1" --> "1..*" EjercicioRutina : contiene
+Member "1" --> "0..*" Routine : follows
+Routine "1" --> "1..*" RoutineExercise : contains
 
-Instructor "1" --> "0..*" Rutina : crea
-Instructor "1" --> "0..*" Ejercicio : crea
+Instructor "1" --> "0..*" Routine : creates
+Instructor "1" --> "0..*" Exercise : creates
 ```
 
 ## Alcance Funcional
