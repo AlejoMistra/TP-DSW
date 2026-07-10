@@ -56,7 +56,7 @@ class Membership {
   +float amountPaid
 }
 
-class Activity {
+class Classes {
   +int id
   +string name
   +string description
