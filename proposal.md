@@ -34,6 +34,7 @@ classDiagram
 class Member {
   +int id
   +string name
+  +string surname
   +string idNumber
   +string email
   +string phone
@@ -53,7 +54,8 @@ class Membership {
   +Date startDate
   +Date endDate
   +string status
-  +float amountPaid
+  +string lastPaymentMethod
+  +float lastAmountPaid
 }
 
 class Classes {
@@ -67,7 +69,6 @@ class Classes {
 class Instructor {
   +int id
   +string name
-  +string specialty
   +string email
 }
 
