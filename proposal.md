@@ -108,9 +108,9 @@ Member "1" --> "0..*" Membership : has
 Membership "1" --> "1" MembershipPlan : corresponds to
 
 Member "1" --> "0..*" Booking : books
-Booking "0..*" --> "1" Activity : for
+Booking "0..*" --> "1" Classes : for
 
-Instructor "1" --> "0..*" Activity : teaches
+Instructor "1" --> "0..*" Classes : teaches
 
 Member "1" --> "0..*" Routine : follows
 Routine "1" --> "1..*" RoutineExercise : contains
