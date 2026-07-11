@@ -69,6 +69,7 @@ class Classes {
 class Instructor {
   +int id
   +string name
+  +string surname
   +string email
 }
 
