@@ -67,17 +67,17 @@ class ClassSchedule {
   +int durationMinutes
   +int instructorId
   +DayOfWeek dayOfWeek
-  +string startTime (HH:mm)
+  +string startTime 
 }
 
 class ClassSession {
   +int id
   +int classScheduleId
   +Date date
-  +string startTime (HH:mm)
-  +string endTime (HH:mm)
+  +string startTime 
+  +string endTime
   +int currentCapacity
-  +string status (scheduled/cancelled/completed)
+  +enum status
 }
 
 class Booking {
@@ -85,7 +85,7 @@ class Booking {
   +int memberId
   +int classSessionId
   +Date bookingDate
-  +string status (confirmed/cancelled/attended)
+  +enum status
 }
 
 class Instructor {
