@@ -58,12 +58,34 @@ class Membership {
   +float lastAmountPaid
 }
 
-class Classes {
+class ClassSchedule {
   +int id
   +string name
   +string description
+  +CategoriaClase category
   +int maxCapacity
   +int durationMinutes
+  +int instructorId
+  +DayOfWeek dayOfWeek
+  +string startTime (HH:mm)
+}
+
+class ClassSession {
+  +int id
+  +int classScheduleId
+  +Date date
+  +string startTime (HH:mm)
+  +string endTime (HH:mm)
+  +int currentCapacity
+  +string status (scheduled/cancelled/completed)
+}
+
+class Booking {
+  +int id
+  +int memberId
+  +int classSessionId
+  +Date bookingDate
+  +string status (confirmed/cancelled/attended)
 }
 
 class Instructor {
@@ -95,24 +117,19 @@ class RoutineExercise {
   +int order
 }
 
-class Booking {
-  +int id
-  +Date date
-  +string startTime
-  +string endTime
-}
-
 %% RELATIONSHIPS
 
 Exercise "1" --> "0..*" RoutineExercise : appears in
 
-Member "1" --> "0..*" Membership : has
+Member "1" --> "1" Membership : has
 Membership "1" --> "1" MembershipPlan : corresponds to
 
-Member "1" --> "0..*" Booking : books
-Booking "0..*" --> "1" Classes : for
+Booking "0..*" --> "1" Member : makes
+ClassSession "1" --> "0..*" Booking : has
 
-Instructor "1" --> "0..*" Classes : teaches
+ClassSchedule "1" --> "0..*" ClassSession : generates
+ClassSchedule "0..*" --> "1" Instructor : teaches
+
 
 Member "1" --> "0..*" Routine : follows
 Routine "1" --> "1..*" RoutineExercise : contains
