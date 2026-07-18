@@ -108,6 +108,7 @@ class Exercise {
   +string name
   +string description
   +string muscleGroup
+  +enum difficultyLevel
 }
 
 class RoutineExercise {
