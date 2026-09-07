@@ -65,9 +65,6 @@ class ClassSchedule {
   +CategoriaClase category
   +int maxCapacity
   +int durationMinutes
-  +int instructorId
-  +DayOfWeek dayOfWeek
-  +string startTime 
 }
 
 class ClassSession {
@@ -75,12 +72,11 @@ class ClassSession {
   +int classScheduleId
   +Date date
   +string startTime 
-  +string endTime
-  +int currentCapacity
+  +int remainingCapacity
   +enum status
 }
 
-class Booking {
+class ClassBooking {
   +int id
   +int memberId
   +int classSessionId
