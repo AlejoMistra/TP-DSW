@@ -121,8 +121,8 @@ Exercise "1" --> "0..*" RoutineExercise : appears in
 Member "1" --> "1" Membership : has
 Membership "1" --> "1" MembershipPlan : corresponds to
 
-Booking "0..*" --> "1" Member : makes
-ClassSession "1" --> "0..*" Booking : has
+ClassBooking "0..*" --> "1" Member : makes
+ClassSession "1" --> "0..*" ClassBooking : has
 
 ClassSchedule "1" --> "0..*" ClassSession : generates
 ClassSchedule "0..*" --> "1" Instructor : teaches
