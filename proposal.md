@@ -20,11 +20,10 @@ Sistema de gestión para gimnasio.
 
 ### Descripción
 
-Sistema de gestión para un gimnasio que permite administrar socios, membresías,
-rutinas e instructores. Los instructores pueden crear rutinas de entrenamiento
-y asignarlas a los socios. Los socios pueden consultar el estado de su membresía
-y acceder a rutinas de entrenamiento que les fueron asignadas por los instructores.
-El personal administrativo gestiona altas, planes y pagos.
+Sistema de gestión para un gimnasio que permite administrar socios, membresías, clases e instructores.
+Los instructores crean rutinas de entrenamiento y dictan clases.
+Los socios pueden consultar el estado de su membresía, explorar rutinas para su entrenamiento diario, y reservar o cancelar cupos en las clases grupales disponibles.
+El personal administrativo gestiona altas de socios, planes, instructores y cobro de cuotas.
 
 ### Diagrama de clases
 
@@ -71,7 +70,7 @@ class ClassSession {
   +int id
   +int classScheduleId
   +Date date
-  +string startTime 
+  +string startTime
   +int remainingCapacity
   +enum status
 }
@@ -128,7 +127,7 @@ ClassSchedule "1" --> "0..*" ClassSession : generates
 ClassSchedule "0..*" --> "1" Instructor : teaches
 
 
-Member "1" --> "0..*" Routine : follows
+Member "0..*" --> "0..*" Routine : consults and follows
 Routine "1" --> "1..*" RoutineExercise : contains
 
 Instructor "1" --> "0..*" Routine : creates
@@ -141,24 +140,23 @@ Instructor "1" --> "0..*" Exercise : creates
 
 Regularidad:
 
-| Req               | Detalle                                                                                                                                                                                                                                                                                    |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| CRUD simple       | 1. CRUD Socio<br>2. CRUD Plan de Membresía<br>3. CRUD Instructor<br>4. CRUD Ejercicio                                                                                                                                                                                                      |
-| CRUD dependiente  | 1. CRUD Membresía {depende de} CRUD Socio y CRUD Plan de Membresía<br>2. CRUD Rutina {depende de} CRUD Ejercicio                                                                                                                                                                           |
-| Listado + detalle | 1. Listado de socios filtrado por estado de membresía (activo/vencido) y/o nombre, muestra nombre, DNI y estado => detalle muestra datos del socio, membresía vigente y rutinas asignadas<br>2. Listado de Rutinas filtrado por nivel => detalle muestra datos completos de los ejercicios |
-| CUU/Epic          | 1. Registrar nuevo socio y asignarle un plan de membresía<br>2. Solicitar y asignar una rutina de entrenamiento: el socio la solicita y el instructor la arma asignándole ejercicios                                                                                                       |
+| Req               | Detalle                                                                                                                                                                                                                                                                                                                        |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| CRUD simple       | 1. CRUD Socio<br>2. CRUD Plan de Membresía<br>3. CRUD Instructor<br>4. CRUD Ejercicio                                                                                                                                                                                                                                          |
+| CRUD dependiente  | 1. CRUD Membresía {depende de} CRUD Socio y CRUD Plan de Membresía<br>2. CRUD Rutina {depende de} CRUD Instructor y CRUD Ejercicio                                                                                                                                                                                             |
+| Listado + detalle | 1. Listado de socios filtrado por estado de membresía (activo/vencido) y/o nombre, muestra nombre, DNI y estado => detalle muestra datos del socio y membresía vigente<br>2. Listado de Rutinas filtrado por nivel => detalle muestra datos completos de los ejercicios                                                        |
+| CUU/Epic          | 1. Registrar nuevo socio y asignarle un plan de membresía<br>2. Reserva y cancelación de cupo en clases por parte del socio: el socio consulta sesiones disponibles y reserva su cupo; el sistema valida disponibilidad y descuenta el cupo en tiempo real. El socio puede además cancelar su reserva restituyendo la vacante. |
 
 Adicionales para Aprobación:
 
-| Req      | Detalle                                                                                                                                                                                                                                                                                                        |
-| -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| CRUD     | 1. CRUD Socio<br>2. CRUD Plan de Membresía<br>3. CRUD Instructor<br>4. CRUD Ejercicio<br>5. CRUD Membresía {depende de} CRUD Socio y CRUD Plan de Membresía<br>6. CRUD Rutina {depende de} CRUD Ejercicio<br>7. CRUD Ejercicio<br>8. CRUD Rutina {depende de} CRUD Socio, CRUD Instructor y CRUD Ejercicio<br> |
-| CUU/Epic | 1. Registrar nuevo socio y asignarle un plan de membresía<br>2. Solicitar y asignar una rutina de entrenamiento: el socio la solicita y el instructor la arma asignándole ejercicios<br>3. Registrar una nueva rutina con ejercicios<br>4. Registrar pago de membresía y renovar vencimiento                   |
+| Req      | Detalle                                                                                                                                                                                                                                                                                                                                               |
+| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| CRUD     | 1. CRUD Socio<br>2. CRUD Plan de Membresía<br>3. CRUD Instructor<br>4. CRUD Ejercicio<br>5. CRUD Horario y Sesión de Clase {depende de} CRUD Instructor<br>6. CRUD Membresía {depende de} CRUD Socio y CRUD Plan de Membresía<br>7. CRUD Rutina {depende de} CRUD Instructor y CRUD Ejercicio                                                         |
+| CUU/Epic | 1. Registrar nuevo socio y asignarle un plan de membresía<br>2. Reserva y cancelación de cupo en clases por parte del socio con control de cupo en tiempo real<br>3. Crear y gestionar rutinas de catálogo con ejercicios parametrizados por parte del instructor<br>4. Registrar pago de membresía y renovar automáticamente la fecha de vencimiento |
 
 ### Alcance Adicional Voluntario
 
 | Req      | Detalle                                                                                                                                                                                |
 | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Listados | 1. Listado de actividades del dia, muestra horarios, descripcion, instructores, socios inscriptos y cupo restante<br>2. Socios con membresía próxima a vencer (en los próximos 7 días) |
-| CUU/Epic | 1. Registrar reserva de cupo para un socio en una actividad<br>2. Cancelar reserva de cupo para un socio en una actividad                                                              |
-| Otros    | 1. Integración con sistema de pago                                                                                                                                                     |
+| Listados | 1. Listado de actividades del día, muestra horarios, descripción, instructores, socios inscriptos y cupo restante<br>2. Socios con membresía próxima a vencer (en los próximos 7 días) |
+| Otros    | 1. Integración con pasarela de pago externa (Mercado Pago / Stripe)                                                                                                                    |
