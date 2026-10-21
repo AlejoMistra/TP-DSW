@@ -83,7 +83,7 @@ class ClassSessionRecurrence {
   +Date endDate
 }
 
-class Booking {
+class ClassBooking {
   +int id
   +int memberId
   +int classSessionId
