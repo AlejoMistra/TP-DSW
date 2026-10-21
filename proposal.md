@@ -80,6 +80,14 @@ class ClassSession {
   +enum status
 }
 
+class ClassSessionRecurrence {
+  +int id                 
+  +RecurrenceFrequency frequency
+  +string? daysOfWeek             
+  +Date startDate  
+  +Date endDate
+}
+
 class Booking {
   +int id
   +int memberId
@@ -130,6 +138,7 @@ ClassSession "1" --> "0..*" Booking : has
 
 ClassSchedule "1" --> "0..*" ClassSession : generates
 ClassSchedule "0..*" --> "1" Instructor : teaches
+ClassSession "0..*" --> "1" ClassSessionRecurrence : follows recurrence pattern
 
 
 Member "1" --> "0..*" Routine : follows
